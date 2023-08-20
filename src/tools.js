@@ -146,7 +146,7 @@ export async function extractProperties({ page, dataset }) {
         const output = [];
         [...document.querySelectorAll('.dir-property-list > .property')].map((listing) => {
             if (!listing.querySelector('span[class*=tip]')) {
-                output.push({ url: listing.querySelector('a').href });
+                output.push({ url: listing.querySelector('a').href,  name: listing.querySelector('.name').text, locality: listing.querySelector('.locality').text,price: listing.querySelector('.prices').text  });
             }
         });
         return output;
